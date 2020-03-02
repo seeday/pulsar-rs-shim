@@ -1,12 +1,11 @@
 extern crate bindgen;
 
-use std::env;
 use std::path::PathBuf;
 
 fn main() {
     // Tell cargo to tell rustc to link the system bzip2
     // shared library.
-    //println!("cargo:rustc-link-lib=pulsar");
+    println!("cargo:rustc-link-lib=pulsar");
     //println!("cargo:rustc-link-search=native=/");
 
     // Tell cargo to invalidate the built crate whenever the wrapper changes
@@ -19,7 +18,7 @@ fn main() {
         // The input header we would like to generate
         // bindings for.
         .header("wrapper.h")
-        .clang_arg("-I../pulsar/pulsar-client-cpp/include")
+        .clang_arg("-I/usr/local/include/")
         // Tell cargo to invalidate the built crate whenever any of the
         // included header files changed.
         //.parse_callbacks(Box::new(bindgen::CargoCallbacks))
